@@ -1,6 +1,5 @@
 from load_csv import load
 import matplotlib.pyplot as plt
-from matplotlib.ticker import ScalarFormatter
 
 
 def format_ticks(value, _):
@@ -32,8 +31,6 @@ def main():
         plt.xscale("log")
         plt.xticks([300, 1000, 10000])
 
-        formatter = ScalarFormatter()
-        formatter.set_scientific(False)
         plt.gca().xaxis.set_major_formatter(
             plt.FuncFormatter(format_ticks))
         plt.savefig("1900.jpg")
