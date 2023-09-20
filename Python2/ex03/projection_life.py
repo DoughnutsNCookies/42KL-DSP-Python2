@@ -27,7 +27,7 @@ def main():
 
         plt.title("1900")
         plt.xlabel("Gross domestic product")
-        plt.ylabel("Life expectancy")
+        plt.ylabel("Life Expectancy")
         plt.scatter(income_data, life_data)
         plt.xscale("log")
         plt.xticks([300, 1000, 10000])
