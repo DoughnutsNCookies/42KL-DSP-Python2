@@ -15,6 +15,7 @@ def main():
         plt.title("Malaysia Life expectancy Projections")
         plt.xlabel("Year")
         plt.ylabel("Life expectancy")
+        plt.xticks(range(1800, 2081, 40))
         plt.plot(years, life_expectancy)
         plt.savefig("life_expectancy_years.jpg")
     except Exception as err:
