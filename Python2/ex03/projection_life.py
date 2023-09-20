@@ -7,11 +7,11 @@ def format_ticks(value, _):
     """
     Format the ticks of the x-axis
     """
-    if value == 300:
-        return "300"
-    elif value == 1000:
-        return "1k"
-    return "10k"
+    return {
+        300: "300",
+        1000: "1k",
+        10000: "10k"
+    }[value]
 
 
 def main():
