@@ -1,6 +1,18 @@
 from load_csv import load
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.ticker import ScalarFormatter
+
+
+def format_ticks(value, _):
+    """
+    Format the ticks of the x-axis
+    """
+    return {
+        40000: "40M",
+        20000: "20M",
+        0: "0"
+    }[value]
 
 
 def extract(data, country):
@@ -33,8 +45,14 @@ def main():
         plt.ylabel("Population")
         plt.plot(years_malaysia, pop_malaysia, label="Malaysia")
         plt.plot(years_singapore, pop_singapore, label="Singapore")
-        plt.yticks(range(0, max(pop_malaysia), 10000))
-        plt.legend()
+
+        plt.xticks(range(1800, 2050, 40))
+        plt.yticks(range(0, max(pop_malaysia), 20000))
+        formatter = ScalarFormatter()
+        formatter.set_scientific(False)
+        plt.gca().yaxis.set_major_formatter(
+            plt.FuncFormatter(format_ticks))
+        plt.legend(loc="lower right")
         plt.savefig("population_total.jpg")
     except Exception as err:
         print(err)
