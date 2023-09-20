@@ -4,6 +4,9 @@ from matplotlib.ticker import ScalarFormatter
 
 
 def format_ticks(value, _):
+    """
+    Format the ticks of the x-axis
+    """
     if value == 300:
         return "300"
     elif value == 1000:
