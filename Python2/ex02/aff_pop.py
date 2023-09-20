@@ -1,7 +1,6 @@
 from load_csv import load
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.ticker import ScalarFormatter
 
 
 def format_ticks(value, _):
@@ -43,13 +42,15 @@ def main():
         plt.title("Population Projections")
         plt.xlabel("Year")
         plt.ylabel("Population")
-        plt.plot(years_malaysia, pop_malaysia, label="Malaysia")
-        plt.plot(years_singapore, pop_singapore, label="Singapore")
+        plt.plot(years_malaysia, pop_malaysia,
+                 label="Malaysia",
+                 color="green")
+        plt.plot(years_singapore, pop_singapore,
+                 label="Singapore",
+                 color="blue")
 
         plt.xticks(range(1800, 2050, 40))
         plt.yticks(range(0, max(pop_malaysia), 20000))
-        formatter = ScalarFormatter()
-        formatter.set_scientific(False)
         plt.gca().yaxis.set_major_formatter(
             plt.FuncFormatter(format_ticks))
         plt.legend(loc="lower right")
